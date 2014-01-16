@@ -19,14 +19,34 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-size: 100%; }
+  font-size: 100%;
+  color: #000;
+}
 
 h1 { margin-bottom: 1em; }
+
+h2 {
+
+  border-bottom: 1px dashed #CCCCCC;
+  font-family: Arial,Helvetica,sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
 p { margin: 1em 0; }
 
-a         { color: #00a; }
-a:hover   { color: #000; }
-a:visited { color: #a0a; }
+
+a {
+    border-bottom: 1px dotted #931919;
+    text-decoration: none;
+    color: #DF4141;
+}
+
+a:hover {
+    color: #931919;
+}
+
 
 /*****************************************************************************/
 /*
@@ -85,13 +105,50 @@ a:visited { color: #a0a; }
 
 .header div.nav a {
   color: #FFFFFF;
+  border: none;
   text-decoration: none;
+}
+
+.header div.nav a:hover {
+  color: #D7D7D7;
 }
 
 .main {
     margin: 0 auto;
     overflow: auto;
     width: 800px;
+}
+
+.main .left {
+    background: none repeat scroll 0 0 #EDEDED;
+    float: left;
+    padding: 20px;
+    width: 220px;    
+}
+
+.main .left ul {
+	list-style: none outside none;
+}
+
+.main .left ul li {
+    background-image: url("img/bullet.gif");
+    background-position: left 5pt;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0 0 0 10px;
+}
+
+.main .bg {
+   background: url("img/left_background.jpg") no-repeat;
+   width: 260px;
+   height: 380px;
+   padding: 0;
+}
+
+.main .content {
+    float: right;
+    padding: 20px;
+    width: 480px;
 }
 
 .footer {
@@ -124,6 +181,14 @@ a:visited { color: #a0a; }
   float: right;
   padding-left: 20px
 }
+
+
+.footer a {
+    border-bottom: 1px dashed #E5E5CC;
+    color: #E5E5CC;
+    text-decoration: none;
+}
+
 
 /*****************************************************************************/
 /*

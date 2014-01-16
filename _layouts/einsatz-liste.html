@@ -1,0 +1,45 @@
+---
+layout: default
+title: Einsätze
+---
+
+{% if page.year %}
+  {% assign liste_jahr = page.year %}
+{% else %}
+  {% assign liste_jahr = site.time | date:"%Y" %}
+{% endif %}
+
+<div class="left">
+<h2>Navigation</h2>
+<ul>
+   {% assign letztes_jahr = '' %}
+   {% for einsatz in site.categories.einsatz order:descending %}
+     {% assign jahr = einsatz.datum | date: "%Y" %}
+     {% unless letztes_jahr == jahr | times:1 %}
+     {% assign this = liste_jahr | minus:jahr %}
+	{% if this == 0 %}      
+	<li>{{ jahr }}</a></li>
+	{% else %}
+	<li><a href="{{site.url}}/einsatz/liste-{{jahr}}.html">{{ jahr }}</a></li>
+	{% endif %}
+     {% endunless %}
+     {% assign letztes_jahr = jahr %}
+   {% endfor %}
+</ul>
+</div>
+
+
+<div class="content">
+	<h2>Einsätze {{liste_jahr}}</h2>
+    {% for einsatz in site.categories.einsatz %}
+	{% assign this = einsatz.datum | date: "%Y" | minus:liste_jahr %}
+        {% if this == 0 %}	
+
+{{ einsatz.datum }} - {{einsatz.stichwort}} - {{ einsatz.ort }} - <a href="{{ einsatz.url }}">mehr...</a><br/>
+
+	{% endif %}
+    {% endfor %}
+{{ content }}
+</div>
+
+
