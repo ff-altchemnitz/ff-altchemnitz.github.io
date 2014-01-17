@@ -1,3 +1,4 @@
 name: FF Altchemnitz
+permalink: /:categories/:year/:year-:month-:day-:title.html
 markdown: redcarpet
 

@@ -47,6 +47,25 @@ a:hover {
     color: #931919;
 }
 
+table {
+  text-align: left;
+  border-spacing: 0;
+}
+
+td, th {
+    border-collapse: collapse;
+    border-color: #CCCCCC;
+    border-style: dashed;
+    border-width: 0 0 1px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 4px;
+}
+
+.nobr {
+  white-space: nowrap; 
+}
+
 
 /*****************************************************************************/
 /*
@@ -64,6 +83,12 @@ a:hover {
   font-size: 11px;
   line-height: 20px;
 }
+
+/*****************************************************************************/
+/*
+/* Header
+/*
+/*****************************************************************************/
 
 .header {
   width: 800px;
@@ -104,14 +129,20 @@ a:hover {
 }
 
 .header div.nav a {
-  color: #FFFFFF;
-  border: none;
-  text-decoration: none;
+    color: #FFFFFF;
+    border: none;
+    text-decoration: none;
 }
 
 .header div.nav a:hover {
   color: #D7D7D7;
 }
+
+/*****************************************************************************/
+/*
+/* Main
+/*
+/*****************************************************************************/
 
 .main {
     margin: 0 auto;
@@ -151,6 +182,13 @@ a:hover {
     width: 480px;
 }
 
+/*****************************************************************************/
+/*
+/* Footer
+/*
+/*****************************************************************************/
+
+
 .footer {
     width: 100%;
     margin-top: 2em;
@@ -188,6 +226,23 @@ a:hover {
     color: #E5E5CC;
     text-decoration: none;
 }
+
+/*****************************************************************************/
+/*
+/* Einsatz
+/*
+/*****************************************************************************/
+
+table.einsatz {
+    margin: 20px 0;
+}
+
+table.einsatz thead {
+}
+
+tr.odd { background-color: #DDDDDD; }
+tr.even { background-color: #EEEEEE; }
+
 
 
 /*****************************************************************************/

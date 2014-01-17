@@ -13,14 +13,14 @@ title: Einsätze
 <h2>Navigation</h2>
 <ul>
    {% assign letztes_jahr = '' %}
-   {% for einsatz in site.categories.einsatz order:descending %}
+   {% for einsatz in site.categories.einsatz %}
      {% assign jahr = einsatz.datum | date: "%Y" %}
      {% unless letztes_jahr == jahr | times:1 %}
      {% assign this = liste_jahr | minus:jahr %}
 	{% if this == 0 %}      
 	<li>{{ jahr }}</a></li>
 	{% else %}
-	<li><a href="{{site.url}}/einsatz/liste-{{jahr}}.html">{{ jahr }}</a></li>
+	<li><a href="{{site.url}}/einsatz/{{jahr}}/">{{ jahr }}</a></li>
 	{% endif %}
      {% endunless %}
      {% assign letztes_jahr = jahr %}
@@ -31,14 +31,33 @@ title: Einsätze
 
 <div class="content">
 	<h2>Einsätze {{liste_jahr}}</h2>
-    {% for einsatz in site.categories.einsatz %}
+	
+<table class="einsatz">
+	<thead>
+		<th>Nr.</th>
+		<th>Datum</th>
+		<th>Einsatzstichwort</th>
+		<th>Einsatzort</th>
+	</thead>
+	<tbody>
+{% assign nr = 0 %}
+  {% for einsatz in site.categories.einsatz reversed %}
 	{% assign this = einsatz.datum | date: "%Y" | minus:liste_jahr %}
         {% if this == 0 %}	
-
-{{ einsatz.datum }} - {{einsatz.stichwort}} - {{ einsatz.ort }} - <a href="{{ einsatz.url }}">mehr...</a><br/>
-
+		{% assign nr = nr | plus:1 %}
+		<tr class="{% cycle 'even', 'odd' %}">
+			<td class="nobr">{{ nr }}</td>
+			<td class="nobr">{{ einsatz.datum | date: "%d.%m.%Y %H:%M" }} </td>
+			<td class="nobr">{{ einsatz.stichwort }}</td>
+			<td>{{ einsatz.ort }}</td>
+		</tr>
 	{% endif %}
-    {% endfor %}
+    {% endfor %}	
+	</tbody>
+</table>
+
+
+
 {{ content }}
 </div>
 
